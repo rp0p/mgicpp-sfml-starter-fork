@@ -2,8 +2,7 @@
 #include "Game.h"
 #include <iostream>
 
-Game::Game(sf::RenderWindow& game_window)
-  : window(game_window)
+Game::Game(sf::RenderWindow& game_window): window(game_window)
 {
   srand(time(NULL)); //seeds random number generator with the current time
 }
@@ -30,7 +29,7 @@ void Game::update(float dt)
 // Runs after update, use it to tell the window what to draw this frame
 void Game::render()
 {
-
+	window.draw(background);
 }
 
 //Called by event polling when a MouseButtonPressed event is found

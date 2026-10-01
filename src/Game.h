@@ -20,8 +20,8 @@ class Game
  private:
   sf::RenderWindow& window;
   
-  sf::Texture background_texture;
-  sf::Sprite background = sf::Sprite(background_texture);
+  sf::Texture background_texture{ "./Data/Images/WhackaMole Worksheet/background.png" };
+  sf::Sprite background = sf::Sprite{ background_texture };
 
 };
 
