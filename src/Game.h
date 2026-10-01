@@ -2,6 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "enums/GameState.h"
+#include "enums/MenuOption.h"
+
 class Game
 {
  public:
@@ -18,7 +21,17 @@ class Game
  private:
   sf::RenderWindow& window;
   
-  sf::Texture background_texture{ "./Data/Images/WhackaMole Worksheet/background.png" };
-  sf::Sprite background = sf::Sprite{ background_texture };
+  sf::Font font{ "./Data/Fonts/MxPlus_IBM_VGA_8x16.ttf" };
+  sf::Text menu_title{ font };
+  sf::Text menu_option_play{ font };
+  sf::Text menu_option_quit{ font };
 
+  sf::Texture background_texture{ "./Data/Images/WhackaMole Worksheet/background.png" };
+  sf::Sprite background{ background_texture };
+
+  sf::Texture bird_texture{ "./Data/Images/WhackaMole Worksheet/bird.png" };
+  sf::Sprite bird{ bird_texture };
+
+  GameState current_gamestate{ GameState::Menu };
+  MenuOption selected_menu_option{ MenuOption::Play };
 };
