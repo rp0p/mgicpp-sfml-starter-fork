@@ -22,5 +22,8 @@ add_executable(SFMLGame ${SOURCE_FILES})  # Names the application and tells comp
 target_link_libraries(SFMLGame PRIVATE SFML::Graphics SFML::Window SFML::System SFML::Audio) # Links the SFML libraries we need to our application
 target_compile_features(SFMLGame PRIVATE cxx_std_20)  # Defines which standard of C++ the compiler should use
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Data/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Data/)  # Copies data from source directory to build directory (so the executable can access it)
-
+# file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Data/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Data/)  # Copies data from source directory to build directory (so the executable can access it)
+add_custom_command(TARGET SFMLGame POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E rm -rf "$<TARGET_FILE_DIR:SFMLGame>/data/"
+  COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/" "$<TARGET_FILE_DIR:SFMLGame>/data/"
+)
