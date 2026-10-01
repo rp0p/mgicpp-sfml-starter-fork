@@ -1,6 +1,4 @@
-
-#ifndef SFML_GAME_H
-#define SFML_GAME_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 
@@ -24,5 +22,3 @@ class Game
   sf::Sprite background = sf::Sprite{ background_texture };
 
 };
-
-#endif // SFML_GAME_H
